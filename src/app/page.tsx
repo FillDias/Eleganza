@@ -4,6 +4,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import Image from 'next/image'
 import logo from '@/assets/imagens/logo.png'
 import Link from "next/link";
+import ListProd from "@/components/ListProd";
 
 
 
@@ -47,12 +48,7 @@ export default function Home() {
       
 </div>
 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10 ">
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden">prod1 </div>
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden">prod1 </div>
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden">prod1 </div>
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden">prod1 </div>
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden">prod1 </div>
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden">prod1 </div>
+ <ListProd/>
 </div>
      
     </main>
