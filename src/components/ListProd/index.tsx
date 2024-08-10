@@ -16,14 +16,14 @@ const ListProd: React.FC = () => {
             alt={product.name} 
             width={500} // Largura da imagem
             height={300} // Altura da imagem
-            className="w-full object-cover rounded-md"
+            className="w-full h-auto object-cover rounded-md transform transition-transform duration-500 hover:scale-105 hover:brightness-130"
           />
             <h2 className="text-lg font-semibold mt-4">{product.name}</h2>
             <p className="text-gray-700">{product.description}</p>
             <p className="text-xl font-bold mt-2">R${product.price}</p>
             <button 
             onClick={() => alert(`Você clicou em ${product.name}`)}
-            className="mt-4 w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-300"
+            className="mt-4 w-full py-2 px-4 bg-[#ffd8e3] text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-300"
           >
             Comprar
           </button>
