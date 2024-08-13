@@ -11,7 +11,7 @@ export default function Home() {
 
     <main >
       
-     <div className="relative  top-10 w-full flex  justify-center  items-center bg-[#f5f5f5]">
+     <div className="relative  top-20 w-full flex  justify-center  items-center bg-[#f5f5f5]">
         <Image src={logo} alt="capa"
         width={200}
         height={200}
