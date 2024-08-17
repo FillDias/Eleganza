@@ -9,12 +9,12 @@ export default function Home() {
   return (
     
 
-    <main >
+    <main className='bg-[#FFFAF0]' >
       
-     <div className="relative  top-20 w-full flex  justify-center  items-center bg-[#f5f5f5]">
+     <div className="relative  top-20 w-full flex  justify-center  items-center ">
         <Image src={logo} alt="capa"
-        width={200}
-        height={200}
+        width={300}
+        height={300}
         
         />
       

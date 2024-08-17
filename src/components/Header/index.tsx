@@ -10,12 +10,12 @@ export const Header = () => {
 
   return (
     <>
-      <div className="fixed z-20 top-0 w-full h-[25px] border-slate-50 bg-[#f1fafa] flex justify-center items-center px-3">
+      <div className="fixed z-20 top-0 w-full h-[25px] border-slate-50 bg-[#FFE4C4] flex justify-center items-center px-3">
         <h1 className="relative h-[14px] text-[10px] italic font-light uppercase font-sans">
           FRETE GRATIS PARA GRANDE VITORIA - 5% DESCONTO VIA PIX.
         </h1>
       </div>
-      <div className="fixed z-10 top-[25px] w-full h-[65px] flex justify-around items-center border-slate-50 bg-[#f1fafa]">
+      <div className="fixed z-10 top-[25px] w-full h-[65px] flex justify-around items-center border-slate-50 bg-[#FFFFFF]">
         <Link className="flex flex-col justify-center items-center mt-5" href={"/"}>
           <AiOutlineHome className="mb-1" />
           <span className="uppercase font-sans font-light">Home</span>

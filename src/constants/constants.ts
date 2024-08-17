@@ -1,65 +1,31 @@
-import Image from 'next/image';
+// constants/constants.ts
 export const products = [
-  {
-    id: 1,
-    name: 'Pantalona Floral Vivi',
-    description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente',
-    price: 180.00,
-    images: ['/images/fot1.jpeg', ] // Caminho correto
-  },
-  {
-    id: 2,
-    name: 'Pantalona com Fenda',
-    description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente',
-    price: 189.90,
-    images: ['/images/fot2.jpeg',]  // Caminho correto
-  },
-  {
-    id: 3,
-    name: 'Macacão Iris',
-    description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente',
-    price: 299.00,
-    images: ['/images/fot3.jpeg', ] // Caminho correto
-  },
-
-  {
-    id: 4,
-    name: 'Macaquinho Aura',
-    description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente',
-    price: 19.99,
-    images: ['/images/fot4.jpeg',]  // Caminho correto
-  },
-  {
-    id: 5,
-    name: 'Macacão Executivo',
-    description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente',
-    price: 255.00,
-    images: ['/images/fot5.jpeg', 
-            '/images/fot6.jpeg'
-
-     ],// Caminho correto
-  },
-  {
-    id: 6,
-    name: 'Blusa floral',
-    description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente',
-    price: 19.99,
-    images: ['/images/fot6.jpeg', ] // Caminho correto
-  },
-  {
-    id: 7,
-    name: 'Croped Angel',
-    description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente',
-    price: 159.00,
-    images: ['/images/fot7.jpeg', ] // Caminho correto
-  },
-  {
-    id: 8,
-    name: 'Blusa Rangel',
-    description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente',
-    price: 19.99,
-    images: ['/images/fot8.jpeg',]  // Caminho correto
-  },
+  { id: 1, name: 'Pantalona Floral Vivi', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 180.00, images: ['/images/fot1.jpeg'] },
+  { id: 2, name: 'Pantalona com Fenda', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 189.90, images: ['/images/fot2.jpeg'] },
+  { id: 3, name: 'Macacão Iris', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 299.00, images: ['/images/fot3.jpeg'] },
+  { id: 4, name: 'Macaquinho Aura', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 19.99, images: ['/images/fot4.jpeg'] },
+  { id: 5, name: 'Macacão Executivo', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 255.00, images: ['/images/fot5.jpeg', '/images/fot6.jpeg'] },
+  { id: 6, name: 'Blusa Floral', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 19.99, images: ['/images/fot6.jpeg'] },
+  { id: 7, name: 'Cropped Angel', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 159.00, images: ['/images/fot7.jpeg'] },
+  { id: 8, name: 'Blusa Rangel', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 19.99, images: ['/images/fot8.jpeg'] },
+  { id: 9, name: 'Vestido Floral', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 200.00, images: ['/images/fot9.jpeg'] },
+  { id: 10, name: 'Calça Jeans Clara', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 179.00, images: ['/images/fot10.jpeg'] },
+  { id: 11, name: 'Calça Jeans Escura', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 179.00, images: ['/images/fot11.jpeg'] },
+  { id: 12, name: 'Shorts Jeans', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 129.00, images: ['/images/fot12.jpeg'] },
+  { id: 13, name: 'Saia Midi Floral', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 149.00, images: ['/images/fot13.jpeg'] },
+  { id: 14, name: 'Vestido de Verão', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 179.00, images: ['/images/fot14.jpeg'] },
+  { id: 15, name: 'Blusa Ciganinha', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 89.00, images: ['/images/fot15.jpeg'] },
+  { id: 16, name: 'Macaquinho Listrado', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 139.00, images: ['/images/fot16.jpeg'] },
+  { id: 17, name: 'Conjunto Saia e Top', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 199.00, images: ['/images/fot17.jpeg'] },
+  { id: 18, name: 'Saia Plissada', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 129.00, images: ['/images/fot18.jpeg'] },
+  { id: 19, name: 'Cropped Rendado', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 99.00, images: ['/images/fot19.jpeg'] },
+  { id: 20, name: 'Blusa de Alça', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 79.00, images: ['/images/fot20.jpeg'] },
+  { id: 21, name: 'Calça Pantalona', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 189.00, images: ['/images/fot21.jpeg'] },
+  { id: 22, name: 'Vestido Longo', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 299.00, images: ['/images/fot22.jpeg'] },
+  { id: 23, name: 'Macacão Estampado', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 219.00, images: ['/images/fot23.jpeg'] },
+  { id: 24, name: 'Blusa de Seda', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 119.00, images: ['/images/fot24.jpeg'] },
+  { id: 25, name: 'Conjunto Esportivo', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 259.00, images: ['/images/fot25.jpeg'] },
+  { id: 26, name: 'Shorts de Renda', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 99.00, images: ['/images/fot26.jpeg'] },
+  { id: 27, name: 'Blusa Social', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 139.00, images: ['/images/fot27.jpeg'] },
+  { id: 28, name: 'Saia Jeans', description: 'Tamanho único, etiqueta M, veste do 36 ao 42 aproximadamente', price: 119.00, images: ['/images/fot28.jpeg'] },
 ];
-
-
