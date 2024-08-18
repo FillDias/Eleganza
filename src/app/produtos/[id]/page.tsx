@@ -1,10 +1,12 @@
+// app/produtos/[id]/page.tsx
 "use client";
 
 import Image from 'next/image';
-import { products } from '@/constants/constants';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import { calculateShipping } from '@/utils/calculateShipping';
+import { useCart } from '@/app/context/CartContext';
+import { products } from '@/constants/constants';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -12,15 +14,30 @@ const ProductDetail = () => {
   const [zipCode, setZipCode] = useState('');
   const [shipping, setShipping] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { addToCart, toggleCart } = useCart();
 
   const handleCalculateShipping = async () => {
-    const result = await calculateShipping(zipCode);
-    if (result.error) {
-      setError(result.message || 'Erro ao calcular o frete');
+    const weight = 500; // Defina um peso padrão, por exemplo, 500 gramas
+
+    try {
+      const result = await calculateShipping(zipCode, weight);
+      if (result.error || !result || result.valorFrete === undefined) {
+        setError(result.message || 'Erro ao calcular o frete');
+        setShipping(null);
+      } else {
+        setShipping(result.valorFrete || 0);
+        setError(null);
+      }
+    } catch (error) {
+      setError('Erro ao calcular o frete');
       setShipping(null);
-    } else {
-      setShipping(result.value || 0);
-      setError(null);
+    }
+  };
+
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product, 1); // Adiciona 1 unidade do produto
+      toggleCart(); // Alterna a visibilidade do carrinho
     }
   };
 
@@ -34,13 +51,12 @@ const ProductDetail = () => {
         <div className="flex flex-col lg:flex-row">
           <div className="flex-1">
             <Image
-              src={product.images[0]} // Usando a primeira imagem
+              src={product.images[0]}
               alt={product.name}
               width={400}
               height={300}
               className="object-cover rounded-md"
             />
-            {/* Adicione outras imagens se desejar */}
           </div>
           <div className="flex-1 lg:ml-6 mt-6 lg:mt-0">
             <h1 className="text-2xl font-semibold mb-2">{product.name}</h1>
@@ -48,7 +64,7 @@ const ProductDetail = () => {
             <p className="text-xl font-bold mb-4">R${product.price.toFixed(2)}</p>
 
             <button
-              onClick={() => window.location.href = '/pagamento'}
+              onClick={handleAddToCart}
               className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-300 mb-4"
             >
               Comprar

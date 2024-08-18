@@ -1,9 +1,11 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Rodape } from "@/components/Rodape"
+import { Rodape } from "@/components/Rodape";
 import { Header } from "@/components/Header";
-
+import Cart from '@/components/Carrinho/Cart';
+import { CartProvider } from '@/app/context/CartContext';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <body className={inter.className}>{children}
-     <Header/>
-     <Rodape />
+      <body className={inter.className}>
+        <CartProvider>
+          {children}
+          <Header />
+          <Rodape />
+          <Cart />
+        </CartProvider>
       </body>
     </html>
   );

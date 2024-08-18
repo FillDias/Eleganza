@@ -1,5 +1,4 @@
-// components/ListProd.tsx
-// src/components/ListProd.tsx
+
 
 "use client";
 

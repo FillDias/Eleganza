@@ -1,12 +1,14 @@
 "use client";
 
 import { FaRegListAlt, FaPhoneAlt } from "react-icons/fa";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
 import Link from "next/link";
+import { useCart } from "@/app/context/CartContext";
 
 export const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const { toggleCart } = useCart();
 
   return (
     <>
@@ -30,33 +32,11 @@ export const Header = () => {
           </button>
           {showDropdown && (
             <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md w-48">
+              {/* Dropdown menu items */}
               <Link href="/produtos/vestido" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
                 Vestido
               </Link>
-              <Link href="/produtos/calca" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
-                Calça
-              </Link>
-              <Link href="/produtos/blusa" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
-                Blusa
-              </Link>
-              <Link href="/produtos/cropped" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
-                Cropped
-              </Link>
-              <Link href="/produtos/macacao" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
-                Macacão
-              </Link>
-              <Link href="/produtos/macaquinho" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
-                Macaquinho
-              </Link>
-              <Link href="/produtos/saia" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
-                Saia
-              </Link>
-              <Link href="/produtos/short" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
-                Short
-              </Link>
-              <Link href="/produtos/conjunto" className="block px-4 py-2 text-black hover:bg-gray-200 uppercase font-sans font-light">
-                Conjunto
-              </Link>
+              {/* Adicione mais links conforme necessário */}
             </div>
           )}
         </div>
@@ -64,6 +44,13 @@ export const Header = () => {
           <FaPhoneAlt className="mb-1" />
           <span className="uppercase font-sans font-light">Contatos</span>
         </Link>
+        <button
+          className="flex flex-col justify-center items-center mt-5"
+          onClick={toggleCart}
+        >
+          <AiOutlineShoppingCart className="mb-1" />
+          <span className="uppercase font-sans font-light">Carrinho</span>
+        </button>
       </div>
     </>
   );
