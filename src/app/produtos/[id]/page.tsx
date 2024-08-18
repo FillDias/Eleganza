@@ -1,8 +1,7 @@
-// app/produtos/[id]/page.tsx
 "use client";
 
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { calculateShipping } from '@/utils/calculateShipping';
 import { useCart } from '@/app/context/CartContext';
@@ -15,9 +14,10 @@ const ProductDetail = () => {
   const [shipping, setShipping] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { addToCart, toggleCart } = useCart();
+  const router = useRouter();
 
   const handleCalculateShipping = async () => {
-    const weight = 500; // Defina um peso padrão, por exemplo, 500 gramas
+    const weight = 500;
 
     try {
       const result = await calculateShipping(zipCode, weight);
@@ -36,8 +36,15 @@ const ProductDetail = () => {
 
   const handleAddToCart = () => {
     if (product) {
-      addToCart(product, 1); // Adiciona 1 unidade do produto
-      toggleCart(); // Alterna a visibilidade do carrinho
+      const cartItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.images[0], // Usando a primeira imagem
+      };
+      addToCart(cartItem, 1); // Adiciona 1 unidade do produto
+      toggleCart();
+      router.push('/checkout');
     }
   };
 

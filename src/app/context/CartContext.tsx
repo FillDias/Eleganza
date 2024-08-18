@@ -1,35 +1,41 @@
-"use client";
-import { createContext, useState, useContext, ReactNode } from 'react';
+"use client"
 
-interface CartItem {
+import React, { createContext, useContext, useState } from 'react';
+
+type CartItem = {
   id: number;
   name: string;
   price: number;
-}
+  image: string; // Certifique-se de que isso está aqui
+};
 
-interface CartContextProps {
+type CartContextProps = {
   cartItems: CartItem[];
   isCartOpen: boolean;
-  addToCart: (item: CartItem) => void;
   toggleCart: () => void;
-}
+  removeItem: (index: number) => void;
+  clearCart: () => void;
+  addToCart: (item: CartItem, quantity: number) => void;
+};
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
-  const addToCart = (item: CartItem) => {
-    setCartItems([...cartItems, item]);
+  const toggleCart = () => setIsCartOpen(!isCartOpen);
+  const removeItem = (index: number) => {
+    setCartItems(cartItems.filter((_, i) => i !== index));
   };
-
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
+  const clearCart = () => setCartItems([]);
+  const addToCart = (item: CartItem, quantity: number) => {
+    const updatedCartItems = [...cartItems, ...Array(quantity).fill(item)];
+    setCartItems(updatedCartItems);
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, isCartOpen, addToCart, toggleCart }}>
+    <CartContext.Provider value={{ cartItems, isCartOpen, toggleCart, removeItem, clearCart, addToCart }}>
       {children}
     </CartContext.Provider>
   );
@@ -38,7 +44,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
-    throw new Error("useCart must be used within a CartProvider");
+    throw new Error('useCart must be used within a CartProvider');
   }
   return context;
 };
