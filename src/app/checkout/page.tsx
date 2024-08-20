@@ -1,6 +1,6 @@
-// src/app/checkout/page.tsx
-"use client";
 
+"use client";
+import PayPalButton from "@/components/PayPalButton";
 import { useCart } from "@/app/context/CartContext";
 import Image from 'next/image';
 
@@ -18,6 +18,7 @@ const CheckoutPage = () => {
         <h1 className="text-3xl font-semibold mb-4">Checkout</h1>
         <div className="mb-4">
           <h2 className="text-2xl font-medium mb-2">Seu Carrinho</h2>
+          
           {cartItems.length === 0 ? (
             <p className="text-gray-500">Seu carrinho está vazio.</p>
           ) : (
@@ -40,7 +41,9 @@ const CheckoutPage = () => {
           )}
         </div>
         <div className="mt-4">
+       
           <h3 className="text-xl font-medium">Total: R${calculateTotal()}</h3>
+          <PayPalButton />
         </div>
       </div>
     </div>
