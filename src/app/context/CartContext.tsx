@@ -6,7 +6,7 @@ type CartItem = {
   id: number;
   name: string;
   price: number;
-  image: string; // Certifique-se de que isso está aqui
+  image: string; 
 };
 
 type CartContextProps = {

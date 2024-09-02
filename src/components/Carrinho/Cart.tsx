@@ -3,6 +3,7 @@
 import { useCart } from '@/app/context/CartContext';
 import Link from 'next/link';
 import Image from 'next/image';
+import CartaoCredito from '@/pagamento/CartaoCredito';
 
 const Cart = () => {
   const { cartItems, isCartOpen, toggleCart, removeItem, clearCart } = useCart();

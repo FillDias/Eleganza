@@ -6,6 +6,7 @@ import { Rodape } from "@/components/Rodape";
 import { Header } from "@/components/Header";
 import Cart from '@/components/Carrinho/Cart';
 import { CartProvider } from '@/app/context/CartContext';
+import Marketing from "@/components/Marketing";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +23,10 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body className={inter.className}>
+      <Marketing />
         <CartProvider>
           {children}
+         
           <Header />
           <Rodape />
           <Cart />
